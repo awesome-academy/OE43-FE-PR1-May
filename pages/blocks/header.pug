@@ -1,0 +1,117 @@
+mixin headerTopList(className)
+    li.header__top-item
+        a.header__top-link(href="#")
+            i(class= className)
+
+mixin headerMenuItem(menuItem)
+    li.header__menu-item 
+        a(href="#").header__menu-link= menuItem
+
+mixin headerMenuItemSub(menuSubItem)
+    li.header__sub-item 
+        a(href="#").header__sub-link
+            i.fas.fa-caret-right
+            = menuSubItem
+
+mixin headerProductItem(productItem)
+    li.header__product-item
+        a.header__product-link(href="#")
+            i.fas.fa-caret-right
+            = productItem
+
+mixin headerProductTitle(productTitle) 
+    a.header__product-title(href="#")
+        i.fas.fa-th-large.window-icon-yl
+        = productTitle
+
+header.header 
+    .header__top 
+        .container.header__top-row
+            ul.header__top-list 
+                +headerTopList("fab fa-facebook-f")
+                +headerTopList("fab fa-google-plus-g")
+                +headerTopList("fab fa-instagram")
+                +headerTopList("fab fa-twitter")
+            .header__top-list
+                a.header__top-link.header__top-register(href="#") Đăng kí 
+                a.header__top-link.header__top-login(href="#") Đăng nhập
+    .header__main
+        .container 
+            .row 
+                .col-md-3
+                    .header__logo 
+                        a(href="/") 
+                            img(src="assets/images/logo/logo.png", alt="logo") 
+                .col-md-9.header__hotline
+                    .row 
+                        .col-md-7 
+                            .row 
+                                .col-md-6 
+                                    strong Hotline:
+                                    span (04) 9500 9650 - (04) 9500 8850
+                                .col-md-6 
+                                    strong Đặt hàng nhanh: 
+                                    span (04) 9500 9650 - (04) 9500 8850
+                        .col-md-5    
+                            .header__search 
+                                input(type="text", placeholder="Tìm kiếm")
+                                i.fas.fa-search
+    .header__menu
+        .container 
+            .header__menu-row 
+                ul.header__menu-list 
+                    +headerMenuItem('Trang chủ')
+                    li.header__menu-item 
+                        a(href="#").header__menu-link Giới thiệu
+                        ul.header__sub-menu
+                            +headerMenuItemSub('Giới thiệu chung')
+                            li.header__sub-item 
+                                a(href="#").header__sub-link 
+                                    i.fas.fa-caret-right
+                                    |Hệ thống cửa hàng
+                                ul.header__sub-child 
+                                    +headerMenuItemSub('Hệ thống cửa hàng A')
+                                    +headerMenuItemSub('Hệ thống cửa hàng A1')
+                                    +headerMenuItemSub('Hệ thống cửa hàng A2')
+                                    +headerMenuItemSub('Hệ thống cửa hàng A3')
+                            +headerMenuItemSub('Chính sách ưu đãi')
+                            +headerMenuItemSub('Thông tin tuyển dụng')
+                    li.header__menu-item 
+                        a(href="#").header__menu-link Sản phẩm
+                        div.header__product
+                            .row 
+                                .col-md-9 
+                                    .row
+                                        -const productTitles=['Máy khoan đa năng cnc', 'Máy cắt plasmar', 'Máy phay công nghiệp', 'Máy ép nhựa thủ công','Máy uốn tôn điện', 'Máy nén khí cnc'];
+                                        -const productItems=['Máy khoan CNC điện', 'Máy phay đa năng 3R', 'Máy hàn, cắt kim loại', 'Máy in phun tích điện', 'Máy ép gỗ chuẩn Nano'];
+                                        each title in productTitles 
+                                                .col-md-4
+                                                    ul.header__product-list
+                                                        +headerProductTitle(title)
+                                                        each item in productItems
+                                                            +headerProductItem(item)
+                                .col-md-3
+                                    .header__product-img 
+                                        img(src="assets/images/header_prd.jpg", alt="header product")
+                    +headerMenuItem('Tin khuyến mại')
+                    +headerMenuItem('Dịch vụ')
+                    +headerMenuItem('Liên hệ')
+                .header__cart 
+                    i.fas.fa-shopping-basket
+                    span.header__cart-num 3
+                    -const cartList = [{'img': 'assets/images/cart/product-cart1.png', 'name': 'Máy khoan black decker', 'quantity': 1, 'price': '1.250.000 Đ'}, {'img': 'assets/images/cart/product-cart2.png', 'name': 'Máy khoan black decker', 'quantity': 1, 'price': '1.250.000 Đ'}, {'img': 'assets/images/cart/product-cart3.png', 'name': 'Máy khoan black decker', 'quantity': 1, 'price': '1.250.000 Đ'}]
+                    ul.header__cart-list
+                        each item in cartList 
+                            li.header__cart-item
+                                img(src= item.img, alt="product cart")
+                                div.header__cart-item-info
+                                    h4.header__cart-item-title= item.name
+                                    span= item.quantity 
+                                        | x 
+                                        strong= item.price
+                                    span.header__cart-item-remove 
+                                        i.fas.fa-times
+                        .header__cart-pay
+                            span.header__cart-amount Tổng tiền: 
+                                strong 4.560.000 Đ
+                            button.header__cart-btn Thanh toán

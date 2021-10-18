@@ -1,0 +1,37 @@
+body {
+    font-family: $primary-font;
+    line-height: 1;
+    color: $title-color;
+    box-sizing: border-box;
+    min-height: 1000px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+ul {
+    margin: 0;
+}
+
+.container {
+    padding: 0;
+}
+
+.window-icon-yl {
+    color: $primary-color;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    position: relative;
+    top: -1px;
+}
+
+.window-icon-gr {
+    @extend .window-icon-yl;
+    color: $text-color;
+}
