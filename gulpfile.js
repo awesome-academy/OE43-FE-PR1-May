@@ -6,7 +6,7 @@ const { src, dest, parallel, watch, series } = require('gulp'),
         browserSync = require('browser-sync').create()
 // Khai báo đường dẫn của các nhóm files
 const FilesPath = { 
-    sassFiles: 'sass/*.scss',
+    sassFiles: 'sass/**/*.scss',
     htmlFiles: 'pages/*.pug'
  }
 
@@ -15,13 +15,13 @@ const { sassFiles, htmlFiles } = FilesPath;
 function sassTask() {
     return src(sassFiles).pipe(sass())
                         .pipe(concat('style.css'))
-                        .pipe(dest('dist/css'))
+                        .pipe(dest('dist/css/'))
                         .pipe(browserSync.stream());
 }
 
 function htmlTask() {
     return src(htmlFiles).pipe(pug({ pretty: true }))
-                        .pipe(dest('dist'))
+                        .pipe(dest('dist/'))
                         .pipe(browserSync.stream());
 }
 
@@ -37,6 +37,8 @@ function serve() {
     })
     watch(sassFiles, sassTask);
     watch(htmlFiles, htmlTask);
+    watch('pages/**/*.pug', htmlTask);
+    watch('assets/**', assetsTask);
 }
 // Để gọi các task gulp bằng dòng lệnh, ta thêm đoạn code sau:
 exports.sass = sassTask;
