@@ -1,0 +1,17 @@
+@mixin page-title {
+    font: {
+        family: $primary-font;
+        weight: 500;
+    }
+    color: $title-color;
+    text-transform: uppercase;
+}
+
+@mixin page-text {
+    font: {
+        family: $secondary-font;
+        weight: 400;
+    }
+    line-height: 2rem;
+    color: $text-color;
+}
