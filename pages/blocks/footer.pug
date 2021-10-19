@@ -1,0 +1,104 @@
+mixin footerTitle(title) 
+    h4.footer__title 
+        i.fas.fa-th-large.window-icon-yl
+        = title
+
+mixin footerLinks(link)
+    li.footer__link-item
+        a.footer__link(href="#")= link
+
+mixin footerContactLinks(link, icon)
+    li.footer__link-item
+        a.footer__link(href="#")
+            span
+                i(class= icon)
+            = link
+
+- const footerPolicy = ['Chính sách giao hàng', 'Chính sách đổi sản phẩm', 'Chính sách bảo hành', 'Chính sách trả góp', 'Giới thiệu hàng đổi trả', 'Vận chuyển miễn phí'];
+- const footerService = ['Hệ thống cửa hàng', 'Hướng dẫn mua hàng', 'Hướng dẫn thanh toán', 'Tích điểm đổi thưởng', 'Dịch vụ đổi trả hàng', 'Câu hỏi thường gặp'];
+- const footerNews = ['Tin tức mới nhất', 'Tin tức khuyến mại', 'Tuyển dụng, đãi ngộ', 'Download tài liệu', 'Chương trình đối tác', 'Nhà phát triển ứng dụng']
+- const footerSocials = [{social: 'Facebook', icon: 'fab fa-facebook-f'}, {social: 'Twitter', icon: 'fab fa-twitter'}, {social: 'Google', icon: 'fab fa-google-plus-g'}, {social: 'Skype', icon: 'fab fa-skype'}, {social: 'Instagram', icon: 'fab fa-instagram'}];
+- const imgSrc = 'assets/images/logo/';
+- const footerPaymentImgs = ['footer_payment1.png', 'footer_payment2.png', 'footer_payment3.png', 'footer_payment4.png', 'footer_payment5.png', 'footer_payment6.png', 'footer_payment7.png', 'footer_payment8.png']
+- const footerBottomLinks = ['Liên hệ', 'Dịch vụ', 'Tin khuyến mại', 'Sản phẩm', 'Giới thiệu', 'Trang chủ'];
+
+footer.footer
+    .container 
+        .row
+            .col-md-3.footer__left
+                +footerTitle('Về chúng tôi')
+                .footer__about 
+                    p.
+                        Công ty Cổ phần Công nghệ DKT đã và đang khẳng định được vị trí hàng đầu
+                        trong lĩnh vực Thương mại điện tử
+                .footer__address
+                    p.footer__address-row
+                        span.footer__address-icon
+                            i.fas.fa-map-marker-alt
+                        span.footer__address-text Tầng 4 - Tòa nhà Hanoi Group 442 Đội Cấn Ba Đình - Hà Nội 
+                    p.footer__address-row    
+                        span.footer__address-icon
+                            i.fas.fa-envelope
+                        span.footer__address-text support@dkt.com.vn
+                    p.footer__address-row   
+                        span.footer__address-icon
+                            i.fas.fa-mobile-alt
+                        span.footer__address-text (84-4) 66558868 - (84-4) 37868904
+            .col-md-9.footer__right
+                .row 
+                    .col-md-3 
+                        +footerTitle('Chính sách')
+                        ul.footer__link-list 
+                            each policy in footerPolicy
+                                +footerLinks(policy)
+
+                    .col-md-3 
+                        +footerTitle('Dịch vụ & hỗ trợ')
+                        ul.footer__link-list 
+                            each service in footerService
+                                +footerLinks(service)
+                    .col-md-3 
+                        +footerTitle('Tin tức - sự kiện')
+                        ul.footer__link-list
+                            each news in footerNews
+                                +footerLinks(news)
+                    .col-md-3 
+                        +footerTitle('Kết nối')
+                        ul.footer__link-list
+                            each item in footerSocials
+                                +footerContactLinks(item.social, item.icon)
+        .col-md-12 
+            .footer__bottom 
+                .row
+                    .col-md-6.footer__payment 
+                        p.footer__bottom-title Thanh toán:
+                        .footer__payment-item 
+                            each image in footerPaymentImgs 
+                                img(src= imgSrc + image, alt="footer payment")
+                    .col-md-6.footer__hotline
+                        p.footer__bottom-title Giải đáp nhanh:
+                        .row 
+                            .col-md-6.footer__hotline-left.row
+                                span.footer__hotline-icon
+                                    i.fas.fa-phone-alt 
+                                .footer__hotline-info 
+                                    p.footer__bottom-title Tư vấn miễn phí (24/7)
+                                    strong 1900 650 650
+
+                            .col-md-6.footer__hotline-right.row
+                                span.footer__hotline-icon
+                                    i.fas.fa-comments
+                                .footer__hotline-info 
+                                    p.footer__bottom-title Góp ý - phản hồi - thắc mắc
+                                    strong 1900 650 650
+    .footer__copy-right 
+        .container 
+            .row
+                .col-md-6 
+                    p.footer__copy-right-text Bản quyền thuộc về 
+                        a(href="#") Design Team
+                        |. Phát triển bởi 
+                        a(href="#") Bizweb
+                .col-md-6
+                    each link in footerBottomLinks
+                        a.footer__copy-right-link(href="#")= link

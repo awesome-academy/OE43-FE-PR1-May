@@ -1,0 +1,134 @@
+.footer {
+    padding: 60px 0 0 0;
+
+    &__title {
+        @include page-title;
+        margin-bottom: 35px;
+    }
+
+    &__about {
+        @include page-text;
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+
+    &__address-row {
+        margin: 15px 0;
+        display: flex;
+    }
+
+    &__address-icon {
+        font-size: 1.8rem;
+        width: 30px;
+        display: inline-block;
+    }
+
+    &__address-text {
+        @include page-text;
+        font-size: 1.3rem;
+        flex: 1;
+    }
+
+    &__link-item:first-child {
+        a {
+            padding-top: 0;
+        }
+    }
+
+    &__link {
+        @include page-text;
+        font-size: 1.3rem;
+        padding: 8px 0;
+        display: block;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        span {
+            display: inline-block;
+            width: 22px;
+        }
+    }
+
+    &__bottom {
+        margin-top: 50px;
+        border-top: 1px solid $border-color;
+        padding: 30px 0;
+        display: block;
+        width: 100%;
+
+        &-title {
+            @include page-text;
+            font-size: 1.3rem   ;
+        }
+    }
+
+    &__payment {
+        padding-left: 0;
+    }
+
+    &__payment-item {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+
+        img {
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__hotline-left, &__hotline-right {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    &__hotline-left {
+        padding-left: 30px;
+    }
+
+    &__hotline-icon {
+        color: $primary-color;
+        border: 2px solid $primary-color;
+        padding: 20px;
+        margin-right: 10px;
+        font-size: 1.8rem;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+
+    &__hotline-info {
+        font-size: 1.8rem;
+        color: #f00;
+    }
+
+    &__copy-right {
+        background-color: $secondary-bold-color;
+        padding: 20px 0;
+    }
+
+    &__copy-right-text {
+        color: $text-color;
+        font-size: 1.3rem;
+        margin: 0;
+
+        a {
+            color: $white;
+        }
+    }
+
+    &__copy-right-link {
+        @extend .footer__copy-right-text;
+        float: right;
+        margin-left: 20px;
+
+        &:hover {
+            color: $white;
+        }
+    }
+}

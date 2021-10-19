@@ -13,13 +13,13 @@
         display: flex;
         margin: 0;
     }
-
+    
     &__top-item:first-child {
         a {
             border-left: 1px solid $border-color;
         }
     }
-
+    
     &__top-link {
         display: flex;
         align-items: center;
@@ -39,7 +39,7 @@
             -o-transition: all .2s linear;
         }
     }
-
+    
     &__top-register, &__top-login {
         width: auto;
         padding: 0 2rem;
@@ -78,11 +78,12 @@
             color: $text-color;
         }
     }
-
+    
     &__search {
         display:block;
         height: 100%;
         position: relative;
+        
         input {
             width: 100%;
             height: 100%;
@@ -118,7 +119,7 @@
             display: flex;
             justify-content: space-between;
         }
-
+        
         &-item {
             position: relative;
             float: left;
@@ -136,7 +137,7 @@
                 display: block !important;
             }
         }
-
+        
         &-link {
             color: $white;
             text-transform: uppercase;
@@ -147,7 +148,7 @@
             padding: 29px;
             display: inline-block;
             border-right: 1px solid $title-color;
-
+            
             &:hover {
                 color: $white;
                 background-color: $primary-color;
@@ -159,7 +160,7 @@
             }
         }
     }
-
+    
     &__sub-menu {
         position: absolute;
         top:101%;
@@ -168,6 +169,7 @@
         border-top: none;
         display: none;
         background-color: $white;
+        z-index: 100;
     }
     
     &__sub-link {
@@ -189,6 +191,7 @@
             margin-right: 10px;
         }
     }
+    
     &__sub-item {
         position: relative;
 
@@ -219,6 +222,7 @@
         padding: 15px;
         background-color: $white;
         box-shadow: 0 3px 5px 1px $shadow-color;
+        z-index: 100;
 
         &-list {
             padding: 15px;
@@ -257,7 +261,7 @@
                 color: $primary-color;
             }
         }
-
+        
         &-img {
             display: block;
             width: 100%;
@@ -270,7 +274,7 @@
             }
         }
     }
-
+    
     &__cart {
         display: block;
         padding: 2.6rem;
@@ -319,6 +323,7 @@
             box-shadow: 0 3px 5px 1px $shadow-color;
             background-color: $white;
             display: none;
+            z-index: 100;
         }
 
         &-item {
@@ -354,7 +359,7 @@
         }
 
         &-item-remove {
-
+            
             i {
                 font-size: 1.2rem;
                 color: $text-color;
