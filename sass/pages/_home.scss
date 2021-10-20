@@ -1,0 +1,41 @@
+.featured-products {
+    margin-top: 30px;
+    
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
+    &__heading {
+        @include page-title;
+        font-size: 1.8rem;
+    }
+}
+
+.product-direction__btn {
+    font-size: 1.4rem;
+    color: $text-color;
+    border: 1px solid $text-color;
+    background-color: $white;
+    width: 30px;
+    height: 30px;
+    line-height: 1.4rem;
+
+    &:hover {
+        color: $white;
+        background-color: $secondary-bold-color;
+        border-color: $secondary-bold-color;
+        transition: all .2s linear;
+        -webkit-transition: all .2s linear;
+        -moz-transition: all .2s linear;
+        -ms-transition: all .2s linear;
+        -o-transition: all .2s linear;
+    }
+}
+
+.product-sidebar {
+    &__list {
+        box-shadow: 0 0 2px 1px $shadow-color;
+    }
+}

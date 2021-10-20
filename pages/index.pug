@@ -2,5 +2,60 @@ extends layouts/layout
 
 block vars
     -title = "Home page"
+    -const bannerRight = [{icon: 'fas fa-plane', title: 'Miễn phí vận chuyển', text: 'Chúng tôi vận chuyển miễn phí với các đơn hàng trị giá trên 1.000.000 Đ'}, {icon: 'fas fa-sync-alt', title: 'Chính sách đổi trả', text: 'Nếu phát hiện lỗi của nhà sản xuất, chúng tôi sẽ đổi mới sản phẩm trong 7 ngày đầu tiên.'}, {icon: 'fas fa-gift', title: 'Khuyến mại hàng tuần', text: 'Mỗi thứ 7 hàng tuần đều có chương trình giảm giá và khuyến mại lớn.'}, {icon: 'fas fa-thumbs-up', title: 'Cam kết hàng chính hãng', text: 'Chúng tôi cam kết bán hàng chính hãng 100% với tất cả các loại sản phẩm.'}]
 
 block container
+    section.banner 
+        .container
+            .row 
+                .col-md-8.banner__slides
+                    #bannerCarousel.carousel.slide(data-ride="carousel")
+                        ul.carousel-indicators
+                            li.active.banner__indicator(data-target="#bannerCarousel" data-slide-to="0")
+                            each i in [1, 2]
+                                li.banner__indicator(data-target="#bannerCarousel" data-slide-to=i)
+                        .carousel-inner
+                            .carousel-item.banner__item.active
+                                .row 
+                                    .col-md-7.col-7.banner__content
+                                        h3 Máy khoan đa năng
+                                        h2 Dewalt
+                                        p.banner__text
+                                            i.banner__icon.far.fa-check-circle 
+                                            | Thiết kế nhỏ gọn, phù hợp, đa mục đích    
+                                        p.banner__text
+                                            i.banner__icon.far.fa-check-circle 
+                                            | Mạnh mẽ, bề bỉ và hiệu suất lớn hơn
+                                        p.banner__text
+                                            i.banner__icon.far.fa-check-circle 
+                                            | Khoan cắt với độ chính xác tuyệt đối
+                                        button.banner__btn Đặt hàng
+                                    .col-md-5.col-5.banner__img    
+                                        img(src="assets/images/slides/SLIDER.jpg", alt="slider image")
+                            each i in [1, 2]
+                                .carousel-item.banner__item
+                                    .row 
+                                        .col-md-7.col-7.banner__content
+                                            h3 Máy khoan đa năng
+                                            h2 Dewalt
+                                            p.banner__text
+                                                i.banner__icon.far.fa-check-circle 
+                                                | Thiết kế nhỏ gọn, phù hợp, đa mục đích    
+                                            p.banner__text
+                                                i.banner__icon.far.fa-check-circle 
+                                                | Mạnh mẽ, bề bỉ và hiệu suất lớn hơn
+                                            p.banner__text
+                                                i.banner__icon.far.fa-check-circle 
+                                                | Khoan cắt với độ chính xác tuyệt đối
+                                            button.banner__btn Đặt hàng
+                                        .col-md-5.col-5.banner__img    
+                                            img(src="assets/images/slides/SLIDER.jpg", alt="slider image")
+                .col-md-4.banner__right
+                    each item in bannerRight
+                        .banner__right-item 
+                            .row
+                                .col-md-3.col-3.banner__right-icon
+                                    i(class= item.icon)
+                                .col-md-9.col-9.banner__right-content
+                                    h4.banner__right-title= item.title
+                                    p.banner__right-text= item.text             

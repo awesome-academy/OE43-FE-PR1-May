@@ -1,0 +1,179 @@
+.banner {
+    padding: 30px 0;
+
+    &__slides {
+        padding-right: 0;
+    }
+
+    &__item {
+        background-color: $banner-background;
+        padding: 50px;
+        position: relative;
+    }
+
+    &__content {
+        h3 {
+            font: {
+                size: 3rem;
+                weight: 400;
+            }
+            text-transform: uppercase;
+
+            @include mobile {
+                font-size: 1.4rem;
+            }
+        }
+
+        h2 {
+            font: {
+                size: 7.2rem;
+                weight: 900;
+            }
+            letter-spacing: 1rem;
+            color: $primary-color;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+
+            @include mobile {
+                font-size: 3.2rem;
+                letter-spacing: .5rem;
+            }
+        }
+    }
+
+    &__text {
+        font: {
+            family: $primary-font;
+            size: 1.8rem;
+            weight: 300;
+        }
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+
+        @include mobile {
+            font-size: 1.4rem;
+            line-height: 1.8rem;
+        }
+    }
+
+    &__icon {
+        font-size: 2.2rem;
+        margin-right: 15px;
+        color: $primary-color;
+
+        @include mobile {
+            font-size: 1.8rem;
+        }
+    }
+
+    &__img {
+        width: 100%;
+        height: auto;
+    }
+    
+    &__btn {
+        background-color: $primary-color;
+        color: $white;
+        border: none;
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        text-transform: uppercase;
+        padding: 15px 22px;
+        line-height: 1.4rem;
+        margin-top: 12px;
+
+        @include mobile {
+            font-size: 1.2rem;
+            padding: 8px 12px;
+        }
+    }
+
+    &__indicator {
+        width: 10px !important;
+        height: 10px !important;
+        background-color: $indicators !important;
+        display: inline-block;
+        position: relative;
+        bottom: 25px;
+
+        @include mobile {
+            bottom: 10px;
+        }
+    }
+
+    &__indicator.active {
+        background-color: $secondary-bold-color !important;
+    }
+    
+    &__right {
+        padding-left: 0;
+    }
+
+    &__right-item {
+        padding: 18px 10px;
+        border: 1px solid $border-color;
+        border-bottom: none;
+
+        &:first-child {
+            i {
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+            }
+        }
+
+        &:last-child {
+            border-bottom: 1px solid $border-color;
+        }
+
+        &:hover {
+            background-color: $primary-color;
+            transition: all .2s linear;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            -ms-transition: all .2s linear;
+            -o-transition: all .2s linear;
+            
+            i,h4,p {
+                color: $white;
+            }
+        }
+    }
+
+    &__right-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        color: $primary-color;
+        padding-right: 0;
+    }
+
+    &__right-content {
+        padding-left: 0;
+    }
+
+    &__right-title {
+        font: {
+            size: 1.6rem;
+            weight: 500;
+        }
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+
+    &__right-text {
+        font: {
+            size: 1.3rem;
+            family: $secondary-font;
+        }
+        line-height: 1.8rem;
+        color: $text-color;
+        margin-bottom: 0;
+    }
+}
