@@ -3,6 +3,9 @@
 
     &__slides {
         padding-right: 0;
+        @include mobile {
+            padding-right: 15px;
+        }
     }
 
     &__item {
@@ -110,6 +113,10 @@
     
     &__right {
         padding-left: 0;
+
+        @include mobile {
+            padding-left: 15px;
+        }
     }
 
     &__right-item {
