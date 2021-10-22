@@ -35,3 +35,10 @@ ul {
     @extend .window-icon-yl;
     color: $text-color;
 }
+
+.products__heading {
+    @include page-title;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+}

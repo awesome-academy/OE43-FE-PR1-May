@@ -7,19 +7,14 @@
         margin-bottom: 30px;
     }
 
-    &__heading {
-        @include page-title;
-        font-size: 1.8rem;
-        display: flex;
-        align-items: center;
-    }
-
     &__list {
         @include mobile {
             margin-top: 15px;
         }
     }
+}
 
+.products {
     &__box {
         padding: 0 15px;
         box-shadow: 0 0 2px 1px $shadow-color;
@@ -34,7 +29,7 @@
     &__item {
         margin-bottom: 30px;
 
-        &:hover .featured-products__btns {
+        &:hover .products__btns {
             display: block;  
         }
     }
@@ -67,6 +62,7 @@
     &__rate-num {
         @include page-text;
         font-size: 1.2rem;
+        font-style: italic;
     }
 
     &__btns {
@@ -101,6 +97,35 @@
     }
 }
 
+.product-direction {
+    display: flex;
+
+    &__type {
+        margin-right: 25px;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__type-btn {
+        @include page-text;
+        font-size: 1.3rem;
+        line-height: 1.3rem;
+        padding: 0px 15px;
+        height: 30px;
+        background-color: $white;
+        border: 1px solid $text-color;
+        margin-left: 10px;
+
+        &:hover {
+            color: $white;
+            background-color: $primary-color;
+            border: 1px solid $primary-color;
+        }
+    }
+}
+
 .product-direction__btn {
     font-size: 1.4rem;
     color: $text-color;
@@ -109,6 +134,7 @@
     width: 30px;
     height: 30px;
     line-height: 1.4rem;
+    margin-left: 5px;
 
     &:hover {
         color: $white;
@@ -162,6 +188,12 @@
 
         @include mobile {
             border-bottom: 1px solid $border-color;
+            background-color: $secondary-bold-color;
+            color: $primary-color;
+
+            i {
+                color: $primary-color;
+            }
         }
     }
 
@@ -181,4 +213,179 @@
 
 input#productSidebarOp:checked ~ .product-sidebar__list {
     display: block;
+}
+
+.new-products {
+    margin-top: 30px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__list {
+        margin-top: 50px;
+
+        .products__box {
+            min-height: 500px !important;
+        }
+    }
+}
+
+.advertisement {
+    &__banner {
+        background-color: $banner-background;
+        padding-left: 30px; 
+        margin: 10px 0;
+
+        @include mobile {
+            padding-left: 15px;
+        }
+    }
+
+    &__info {
+        padding: 30px 0;
+
+        @include mobile {
+            padding: 15px 0;
+        }
+    }
+
+    &__name {
+        font: {
+            size: 4.8rem;
+            weight: 900;
+        }
+        line-height: 4.8rem;
+        text-transform: uppercase;
+        color: $black-bold-text;
+
+        @include mobile {
+            font-size: 2rem;
+            line-height: 2rem;
+        }
+    }
+
+    &__type {
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        color: $bold-gray;
+        text-transform: uppercase;
+
+        @include mobile {
+            font-size: 1rem;
+        }
+    }
+
+    &__price {
+        background-color: $primary-color;
+        display: inline-block;
+        font: {
+            size: 2.4rem;
+            weight: 700;
+        }
+        line-height: 2.4rem;
+        padding: 10px 20px;
+        margin-top: 8px;
+
+        @include mobile {
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+            padding: 5px 10px;
+            margin-top: 4px;
+        }
+    }
+
+    &__text {
+        font: {
+            size: 1.4rem;
+            weight: 500;
+            style: italic;
+        }
+        margin-bottom: 0;
+        text-transform: uppercase;
+        line-height: 1.8rem;
+        margin-top: 12px;
+
+        strong {
+            color: $red;
+        }
+
+        @include mobile {
+            font-size: 1rem;
+            line-height: 1.4rem;
+        }
+    }
+
+    &__img {
+        padding: 20px;
+    }
+
+    &__sale {
+        background-color: $primary-color;
+        display: block;
+        padding: 5px;
+        width: 88px;
+        height: 88px;
+        position: absolute;
+        top: 18px;
+        right: 33px;
+        text-align: center;
+        color: $white;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+
+        @include mobile {
+            width: 55px;
+            height: 55px;
+        }
+        
+        &-box {
+            border: 1px solid $white;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+
+            @include mobile {
+                padding: 5px 0;
+            }
+
+            p {
+                font: {
+                    size: 1.8rem;
+                    weight: 300;
+                }
+                text-transform: uppercase;
+                margin: 2px;
+
+                @include mobile {
+                    font-size: 1.4rem;
+                }
+            }
+
+            strong {
+                font: {
+                    size: 2.4rem;
+                    weight: 900;
+                }
+
+                @include mobile {
+                    font-size: 1.6rem;
+                }
+            }
+
+           
+        }
+    }
 }
