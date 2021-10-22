@@ -6,7 +6,9 @@ block vars
     -const sidebarItems = ['Máy in phun khổ lớn', 'Máy quét Canon 3D', 'Máy hàn điện Alunima', 'Máy khoan Decameta', 'Máy phay đa năng CNC', 'Máy mài, tiện DC 12V', 'Máy khoan, cắt CNC', 'Máy quay thông minh N3', 'Motor R34C đa dụng', 'Máy in laser màu 3D'];
     -const featuredProImgSrc = 'assets/images/products/featured-products/';
     -const featuredProInfo = ['product1.png', 'product2.png', 'product3.png', 'product4.png', 'product5.png', 'product6.png'];
-
+    -const productDirectType = ['Máy khoan', 'Máy in 3D', 'Máy CNC', 'Máy tiện', 'Máy khác'];
+    -const newProImgSrc = 'assets/images/products/new-products/';
+    -const newProInfo = ['product1.png', 'product2.png', 'product3.png'];
 block container
     section.banner 
         .container
@@ -67,7 +69,7 @@ block container
         .container
             .col-md-12
                 .featured-products__header 
-                    h4.featured-products__heading 
+                    h4.products__heading 
                         i.fas.fa-th-large.window-icon-yl
                         | Sản phẩm nổi bật
                     .product-direction 
@@ -89,16 +91,83 @@ block container
                     .col-md-9.featured-products__list 
                         .row 
                             each item in featuredProInfo
-                                .col-md-4.featured-products__item.text-center 
-                                    .featured-products__box 
-                                        img.featured-products__img(src= featuredProImgSrc+item, alt="featured product")
-                                        p.featured-products__price 1.550.000 Đ
-                                        h4.featured-products__name Máy khoan Black Decker 
-                                        span.featured-products__rate 
+                                .col-md-4.products__item.text-center 
+                                    .products__box 
+                                        img.products__img(src= featuredProImgSrc+item, alt="featured product")
+                                        p.products__price 1.550.000 Đ
+                                        h4.products__name Máy khoan Black Decker 
+                                        span.products__rate 
                                             each i in [1, 2, 3, 4]
                                                 i.fas.fa-star
                                             i.far.fa-star
-                                        i.featured-products__rate-num (12 Đánh giá)
-                                        .featured-products__btns 
-                                            button.featured-products__btn--buy Mua ngay 
-                                            button.featured-products__btn--see-details Xem chi tiết
+                                        i.products__rate-num (12 Đánh giá)
+                                        .products__btns 
+                                            button.products__btn--buy Mua ngay 
+                                            button.products__btn--see-details Xem chi tiết
+    section.new-products
+        .container 
+            .col-md-12 
+                .new-products__header 
+                    h4.products__heading
+                        i.fas.fa-th-large.window-icon-yl
+                        | Sản phẩm mới
+                    .product-direction 
+                        .product-direction__type
+                            each productType in productDirectType
+                                button.product-direction__type-btn= productType
+                        button.product-direction__btn 
+                            i.fas.fa-caret-left
+                        button.product-direction__btn 
+                            i.fas.fa-caret-right   
+                .new-products__list 
+                    .row 
+                        each item in newProInfo
+                            .col-md-4.products__item.text-center 
+                                .products__box 
+                                    img.products__img(src= newProImgSrc+item, alt="new product")
+                                    p.products__price 1.550.000 Đ
+                                    h4.products__name Máy khoan Black Decker 
+                                    span.products__rate 
+                                        each i in [1, 2, 3, 4]
+                                            i.fas.fa-star
+                                        i.far.fa-star
+                                    i.products__rate-num (12 Đánh giá)
+                                    .products__btns 
+                                        button.products__btn--buy Mua ngay 
+                                        button.products__btn--see-details Xem chi tiết
+    section.advertisement
+        .container 
+            .col-md-12 
+                    .row
+                        .col-md-6
+                            .advertisement__banner 
+                                .row
+                                    .col-md-6.col-6
+                                        .advertisement__info 
+                                            h2.advertisement__name Demishi
+                                            p.advertisement__type Máy hàn xì chuyên nghiệp
+                                            h3.advertisement__price 2.250.000 Đ
+                                            p.advertisement__text Cơ hội trúng ngay tivi samsung lcd trị giá 
+                                                strong 2.700.000 Đ
+                                    .col-md-6.col-6.advertisement__img
+                                        img(src="assets/images/advertisement/adv1.jpg", alt="advertisement image")
+                                        .advertisement__sale 
+                                            .advertisement__sale-box 
+                                                p Giảm 
+                                                strong 12%
+                        .col-md-6
+                            .advertisement__banner 
+                                .row
+                                    .col-md-6.col-6
+                                        .advertisement__info 
+                                            h2.advertisement__name Makita
+                                            p.advertisement__type Máy khoan - cắt đa năng
+                                            h3.advertisement__price 7.450.000 Đ
+                                            p.advertisement__text Tặng ngay 1 bộ phụ kiện cao cấp trị giá 
+                                                strong 600.000 Đ
+                                    .col-md-6.col-6.advertisement__img
+                                        img(src="assets/images/advertisement/adv2.jpg", alt="advertisement image")
+                                        .advertisement__sale 
+                                            .advertisement__sale-box 
+                                                p Sale 
+                                                strong 30%
