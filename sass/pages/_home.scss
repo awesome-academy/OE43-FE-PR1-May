@@ -1,12 +1,6 @@
 .featured-products {
     margin-top: 30px;
     
-    &__header {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 30px;
-    }
-
     &__list {
         @include mobile {
             margin-top: 15px;
@@ -15,10 +9,17 @@
 }
 
 .products {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+    }
+
     &__box {
         padding: 0 15px;
         box-shadow: 0 0 2px 1px $shadow-color;
         padding: 20px 0;
+        height: 100%;
         min-height: 376px;
 
         &:hover {
@@ -71,29 +72,23 @@
     }
 
     &__btn--buy {
+        @include btn-buy;
         font: {
             size: 1.2rem;
             weight: 500;
         }
-        color: $white;
-        border: none;
-        background-color: $primary-color;
         padding: 15px 25px;
-        text-transform: uppercase;
-        margin-right: 5px;
+        margin-right: 2px;
     }
 
     &__btn--see-details {
+        @include btn-details;
         font: {
             size: 1.2rem;
             weight: 500;
         }
-        color: $white;
-        background-color: $secondary-bold-color;
-        border: none;
         padding: 15px 25px;
-        text-transform: uppercase;
-        margin-left: 5px;
+        margin-left: 2px;
     }
 }
 
@@ -217,11 +212,6 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
 
 .new-products {
     margin-top: 30px;
-
-    &__header {
-        display: flex;
-        justify-content: space-between;
-    }
 
     &__list {
         margin-top: 50px;
@@ -387,5 +377,194 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
 
            
         }
+    }
+}
+
+.best-sell-products {
+    margin-top: 50px;
+
+    &__list {
+        padding-top: 15px;
+    }
+
+    &__mid--item {
+        height: 100%;
+    }
+
+    &__item-bt {
+        margin-bottom: 0;
+    }
+}
+
+.best-sell {
+    &__price {
+        font-size: 1.8rem;
+        margin-top: 100px;
+    }
+
+    &__name {
+        font-size: 1.8rem;
+        margin: 20px 0 15px;
+    }
+}
+
+.advertisement-nd {
+    margin-top: 60px;
+   
+    &__box {
+        background-color: $bold-banner-background;
+    }
+
+    &__img--lt {
+        padding: 28px 0 0 30px;
+    }
+
+    &__img--rt {
+        padding-top: 28px;
+    }
+
+    &__content {
+        padding: 25px 52px;
+
+        @include mobile {
+            padding: 25px 45px;
+        }
+    }
+
+    &__name {
+        font: {
+            size: 3.6rem;
+            weight: 900;
+        }
+        text-transform: uppercase;
+        color: $black-bold-text;
+
+        @include mobile {
+            font-size: 2.6rem;
+        }
+    }
+
+    &__text {
+        font: {
+            size: 1.6rem;
+            weight: 300;
+        }
+        line-height: 2rem;
+        color: $black-bold-text;
+
+        @include mobile {
+            font-size: 1.3rem;
+            line-height: 1.8rem;
+        }
+    }
+
+    &__buy {
+        @include btn-buy;
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        line-height: 1.4rem;
+        padding: 14px 22px;
+        margin-right: 5px;
+        border: 1px solid $primary-color;
+    }
+
+    &__details {
+        color: $black-bold-text;
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        line-height: 1.4rem;
+        text-transform: uppercase;
+        border: none;
+        background-color: transparent;
+        padding: 14px 22px;
+        margin-right: 5px;
+        border: 1px solid $black-bold-text;
+    }
+}
+
+.new-import-products {
+    margin-top: 50px;
+
+}
+
+.product-list {
+    
+    &__item {
+        box-shadow: 0 0 2px 1px $shadow-color;
+        padding: 20px 10px;
+        margin-bottom: 30px;
+
+        &:hover {
+            box-shadow: 0 0 5px 3px $shadow-color;
+        }
+    }
+
+    &__img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__name {
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        text-transform: uppercase;
+        margin-bottom: 10px;    
+    }
+
+    &__rate {
+        color: $primary-color;
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    &__rate-num {
+        color: $text-color;
+        font: {
+            size: 1.2rem;
+            style: italic;
+            family: $secondary-font;
+        }
+    }
+
+    &__text {
+        @include page-text;
+        font-size: 1.3rem;
+        margin-top: 15px;
+    }
+
+    &__price {
+        font: {
+            size: 1.8rem;
+            weight: 500;
+        }
+        color: $red;
+    }
+
+    &__btn--buy {
+        @include btn-buy;
+        font: {
+            size: 1.2rem;
+            weight: 500;
+        }
+        line-height: 1.2rem;
+        padding: 15px 25px;
+    }
+
+    &__btn--see-details {
+        @include btn-details;
+        font: {
+            size: 1.2rem;
+            weight: 500;
+        }
+        line-height: 1.2rem;
+        margin-left: 5px;
+        padding: 15px 25px;
     }
 }

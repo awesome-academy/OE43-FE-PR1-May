@@ -42,3 +42,12 @@ ul {
     display: flex;
     align-items: center;
 }
+
+.text-2-line {
+    display: block;
+    height: 3.8rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
