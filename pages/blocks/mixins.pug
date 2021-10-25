@@ -3,3 +3,53 @@ mixin productSidebarItem(item)
         a.product-sidebar__link(href="#")
             i.fas.fa-th-large.window-icon-gr
             = item
+            
+mixin productItemBox(img)
+    .products__item.text-center 
+        .products__box 
+            img.products__img(src= img, alt="product item")
+            p.products__price 1.550.000 Đ
+            h4.products__name Máy khoan Black Decker 
+            span.products__rate 
+                each i in [1, 2, 3, 4]
+                    i.fas.fa-star
+                i.far.fa-star
+            i.products__rate-num (12 Đánh giá)
+            .products__btns 
+                button.products__btn--buy Mua ngay 
+                button.products__btn--see-details Xem chi tiết
+
+mixin productBestSellingBtItem(img)
+    .products__item.best-sell-products__item-bt.text-center
+        .products__box 
+            img.products__img(src= img, alt="best selling product")
+            p.products__price 1.550.000 Đ
+            h4.products__name Máy khoan Black Decker 
+            span.products__rate 
+                each i in [1, 2, 3, 4]
+                    i.fas.fa-star
+                i.far.fa-star
+            i.products__rate-num (12 Đánh giá)
+            .products__btns 
+                button.products__btn--buy Mua ngay 
+                button.products__btn--see-details Xem chi tiết
+
+mixin productListFormat(img)
+    .product-list__item
+        .row
+            .col-md-4 
+                .product-list__img
+                    img(src= img, alt="product list item")
+            .col-md-8 
+                .product-list__content 
+                    h3.product-list__name Máy khoan cnc 3D
+                    span.product-list__rate 
+                        each i in [1, 2, 3, 4]
+                            i.fas.fa-star
+                        i.far.fa-star
+                    i.product-list__rate-num (12 Đánh giá)
+                    p.product-list__text.text-2-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut rhoncus velit. In mattis hendrerit tristique. Suspendisse gravida efficitur semper. Mauris tortor purus, dignissim vitae commodo at, fermentum et libero. Duis id diam in dui lacinia dignissim at vel justo.
+                    h4.product-list__price 2.350.000 Đ
+                    .product-list__btns 
+                        button.product-list__btn--buy Mua ngay 
+                        button.product-list__btn--see-details Xem chi tiết

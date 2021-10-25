@@ -9,6 +9,10 @@ block vars
     -const productDirectType = ['Máy khoan', 'Máy in 3D', 'Máy CNC', 'Máy tiện', 'Máy khác'];
     -const newProImgSrc = 'assets/images/products/new-products/';
     -const newProInfo = ['product1.png', 'product2.png', 'product3.png'];
+    -const bestSellProImgSrc = 'assets/images/products/best-sell-products/';
+    -const newImportProImgSrc = 'assets/images/products/new-import-products/';
+    -const newImportProImg = ['product1.png', 'product2.png', 'product3.png', 'product4.png'];
+
 block container
     section.banner 
         .container
@@ -68,7 +72,7 @@ block container
     section.featured-products 
         .container
             .col-md-12
-                .featured-products__header 
+                .products__header 
                     h4.products__heading 
                         i.fas.fa-th-large.window-icon-yl
                         | Sản phẩm nổi bật
@@ -91,23 +95,12 @@ block container
                     .col-md-9.featured-products__list 
                         .row 
                             each item in featuredProInfo
-                                .col-md-4.products__item.text-center 
-                                    .products__box 
-                                        img.products__img(src= featuredProImgSrc+item, alt="featured product")
-                                        p.products__price 1.550.000 Đ
-                                        h4.products__name Máy khoan Black Decker 
-                                        span.products__rate 
-                                            each i in [1, 2, 3, 4]
-                                                i.fas.fa-star
-                                            i.far.fa-star
-                                        i.products__rate-num (12 Đánh giá)
-                                        .products__btns 
-                                            button.products__btn--buy Mua ngay 
-                                            button.products__btn--see-details Xem chi tiết
+                                .col-md-4
+                                    +productItemBox(featuredProImgSrc+item)
     section.new-products
         .container 
             .col-md-12 
-                .new-products__header 
+                .products__header 
                     h4.products__heading
                         i.fas.fa-th-large.window-icon-yl
                         | Sản phẩm mới
@@ -122,19 +115,8 @@ block container
                 .new-products__list 
                     .row 
                         each item in newProInfo
-                            .col-md-4.products__item.text-center 
-                                .products__box 
-                                    img.products__img(src= newProImgSrc+item, alt="new product")
-                                    p.products__price 1.550.000 Đ
-                                    h4.products__name Máy khoan Black Decker 
-                                    span.products__rate 
-                                        each i in [1, 2, 3, 4]
-                                            i.fas.fa-star
-                                        i.far.fa-star
-                                    i.products__rate-num (12 Đánh giá)
-                                    .products__btns 
-                                        button.products__btn--buy Mua ngay 
-                                        button.products__btn--see-details Xem chi tiết
+                            .col-md-4
+                                +productItemBox(newProImgSrc+item)
     section.advertisement
         .container 
             .col-md-12 
@@ -171,3 +153,76 @@ block container
                                             .advertisement__sale-box 
                                                 p Sale 
                                                 strong 30%
+    section.best-sell-products
+        .container 
+            .col-md-12 
+                .products__header 
+                    h4.products__heading
+                        i.fas.fa-th-large.window-icon-yl
+                        | Sản phẩm bán chạy
+                    .product-direction 
+                        .product-direction__type
+                            each productType in productDirectType
+                                button.product-direction__type-btn= productType
+                        button.product-direction__btn 
+                            i.fas.fa-caret-left
+                        button.product-direction__btn 
+                            i.fas.fa-caret-right
+                .best-sell-products__list 
+                    .row 
+                        .col-md-3.best-sell-products__side
+                            +productItemBox(bestSellProImgSrc + 'product-side1.png')
+                            +productBestSellingBtItem(bestSellProImgSrc + 'product-side2.png')
+                        .col-md-6.best-sell-products__mid
+                            .products__item.best-sell-products__mid--item.text-center
+                                .products__box 
+                                    img.products__img(src="assets/images/products/best-sell-products/product-mid.png", alt="best selling product")
+                                    p.products__price.best-sell__price 1.550.000 Đ
+                                    h4.products__name.best-sell__name Máy khoan Black Decker 
+                                    span.products__rate 
+                                        each i in [1, 2, 3, 4]
+                                            i.fas.fa-star
+                                        i.far.fa-star
+                                    i.products__rate-num (12 Đánh giá)
+                                    .products__btns 
+                                        button.products__btn--buy Mua ngay 
+                                        button.products__btn--see-details Xem chi tiết
+                        .col-md-3.best-sell-products__side 
+                            +productItemBox(bestSellProImgSrc + 'product-side3.png')
+                            +productBestSellingBtItem(bestSellProImgSrc + 'product-side4.png')
+    section.advertisement-nd
+        .container 
+            .col-md-12 
+                .advertisement-nd__box
+                    .row
+                        .col-md-6 
+                            .advertisement-nd__img
+                                .row 
+                                    .col-md-6.col-6.advertisement-nd__img--lt
+                                        img(src="assets/images/advertisement/banner-1.png", alt="advertisement second")
+                                    .col-md-6.col-6.advertisement-nd__img--rt
+                                        img(src="assets/images/advertisement/banner-2.png", alt="advertisement second")
+                        .col-md-6 
+                            .advertisement-nd__content.text-center 
+                                h2.advertisement-nd__name Rocket wokaru
+                                p.advertisement-nd__text Máy cắt, khoan đa năng tích hợp điều khiển từ xa loại nhỏ thích hợp với các hộ gia đình
+                                .advertisement-nd__btns 
+                                    button.advertisement-nd__buy Mua ngay 
+                                    button.advertisement-nd__details Chi tiết
+    section.new-import-products
+        .container 
+            .col-md-12 
+                .products__header 
+                    h4.products__heading
+                        i.fas.fa-th-large.window-icon-yl
+                        | Hàng mới về
+                    .product-direction 
+                        button.product-direction__btn 
+                            i.fas.fa-caret-left
+                        button.product-direction__btn 
+                            i.fas.fa-caret-right
+                .new-import-products__list 
+                    .row 
+                        each image in newImportProImg
+                            .col-md-6 
+                                +productListFormat(newImportProImgSrc+image)

@@ -27,3 +27,17 @@
         @content;
     }
 }
+
+@mixin btn-buy {
+    background-color: $primary-color;
+    color: $white;
+    text-transform: uppercase;
+    border: none;
+}
+
+@mixin btn-details {
+    background-color: $secondary-bold-color;
+    color: $white;
+    text-transform: uppercase;
+    border: none;
+}
