@@ -12,6 +12,8 @@ block vars
     -const bestSellProImgSrc = 'assets/images/products/best-sell-products/';
     -const newImportProImgSrc = 'assets/images/products/new-import-products/';
     -const newImportProImg = ['product1.png', 'product2.png', 'product3.png', 'product4.png'];
+    -const customerImgSrc = 'assets/images/customers/';
+    -const customerImgs = ['infinite.png', 'artworker.png', 'media.png', 'tech.png', 'mamolog.png'];
 
 block container
     section.banner 
@@ -224,5 +226,25 @@ block container
                 .new-import-products__list 
                     .row 
                         each image in newImportProImg
-                            .col-md-6 
+                            .col-md-6.new-import-products__item
                                 +productListFormat(newImportProImgSrc+image)
+    section.customer
+        .col-md-12
+            .row
+                .customer__direction.col-1 
+                    a.customer__direction-link(href="#")
+                        i.fas.fa-chevron-left
+                .customer__list.col-10
+                        each item in customerImgs
+                            a.customer__link(href="#") 
+                                img.customer__img(src=customerImgSrc+item, alt="customer")
+                .customer__direction.col-1
+                    a.customer__direction-link(href="#")
+                        i.fas.fa-chevron-right
+    section.register-receive-news
+        .container 
+            .col-md-12.text-center 
+                p.register-receive-news__text.text-white Đăng kí để nhận tin tức khuyến mại hàng tuần
+                form.register-receive-news__form
+                    input.register-receive-news__input(type="text", placeholder="Nhập email của bạn")
+                    button.register-receive-news__btn Đăng kí 
