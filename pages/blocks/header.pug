@@ -3,9 +3,9 @@ mixin headerTopList(className)
         a.header__top-link(href="#")
             i(class= className)
 
-mixin headerMenuItem(menuItem)
+mixin headerMenuItem(menuItem, link)
     li.header__menu-item 
-        a(href="#").header__menu-link= menuItem
+        a(href= link).header__menu-link= menuItem
 
 mixin headerMenuItemSub(menuSubItem)
     li.header__sub-item 
@@ -64,7 +64,7 @@ header.header
             .col-md-12
                 .header__menu-row 
                     ul.header__menu-list 
-                        +headerMenuItem('Trang chủ')
+                        +headerMenuItem('Trang chủ', 'index.html')
                         li.header__menu-item 
                             a(href="#").header__menu-link Giới thiệu
                             ul.header__sub-menu
@@ -81,7 +81,7 @@ header.header
                                 +headerMenuItemSub('Chính sách ưu đãi')
                                 +headerMenuItemSub('Thông tin tuyển dụng')
                         li.header__menu-item 
-                            a(href="#").header__menu-link Sản phẩm
+                            a(href="/product.html").header__menu-link Sản phẩm
                             div.header__product
                                 .row 
                                     .col-md-9 
@@ -97,9 +97,9 @@ header.header
                                     .col-md-3
                                         .header__product-img 
                                             img(src="assets/images/header_prd.jpg", alt="header product")
-                        +headerMenuItem('Tin khuyến mại')
-                        +headerMenuItem('Dịch vụ')
-                        +headerMenuItem('Liên hệ')
+                        +headerMenuItem('Tin khuyến mại', '#')
+                        +headerMenuItem('Dịch vụ', '#')
+                        +headerMenuItem('Liên hệ', '#')
                     .header__cart 
                         i.fas.fa-shopping-basket
                         span.header__cart-num 3
