@@ -16,11 +16,10 @@
     }
 
     &__box {
-        padding: 0 15px;
         box-shadow: 0 0 2px 1px $shadow-color;
         padding: 20px 0;
         height: 100%;
-        min-height: 376px;
+        min-height: 338px;
 
         &:hover {
             box-shadow: 0 0 5px 2px $shadow-color;
@@ -32,6 +31,10 @@
 
         &:hover .products__btns {
             display: block;  
+        }
+
+        &:hover {
+            margin-bottom: 0;
         }
     }
 
@@ -67,7 +70,7 @@
     }
 
     &__btns {
-        margin-top: 20px;
+        margin-top: 15px;
         display: none;
     }
 
@@ -165,10 +168,12 @@
         @include page-text;
         font-size: 1.3rem;
         padding: 25px 20px;
-        display: block;
+        display: flex;
+        align-items: center;
+        line-height: 1.3rem;
 
         &:hover {
-            color: $primary-color;
+            color: $primary-color !important;
             background-color: $secondary-color;
 
             i {
@@ -184,7 +189,7 @@
         @include mobile {
             border-bottom: 1px solid $border-color;
             background-color: $secondary-bold-color;
-            color: $primary-color;
+            color: $primary-color !important;
 
             i {
                 color: $primary-color;
@@ -198,11 +203,15 @@
         right: 10px;
         font-size: 1.3rem;
         color: $primary-color;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: none;
         width: 70px;
         height: 70px;
+
+        @include mobile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
 
@@ -399,6 +408,20 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
 
     &__item-bt {
         margin-bottom: 0;
+
+        &:hover {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+.best-sell-products__side {
+    .products__box {
+        min-height: 370px;
+    }
+
+    .products__item:hover {
+        margin-bottom: 30px;
     }
 }
 
@@ -635,7 +658,7 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
 .register-receive-news {
     padding: 60px 0;
     background-image: url('../assets/images/background-form.jpg');
-    object-fit: cover;
+    background-size: cover;
 
     @include mobile {
         padding: 30px 0;
@@ -649,9 +672,12 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
             weight: 300;
         }
         margin-bottom: 30px;
+        line-height: 3rem;
 
         @include mobile {
             margin-bottom: 20px;
+            font-size: 2rem;
+            padding: 0 40px;
         }
     }
 

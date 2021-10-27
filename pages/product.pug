@@ -1,0 +1,77 @@
+extends layouts/layout
+
+mixin productSidebarColorItem(item, color)
+    li.product-sidebar__item 
+        a.product-sidebar__link(href="#")
+            span.product-sidebar__color-box(style="background-color: " + color)
+            = item
+
+mixin productSidebarPromotional(img)
+    li.product-sidebar__promotional--item
+        a.product-sidebar__promotional--link(href="#")
+            .product-sidebar__promotional--img 
+                img(src= img, alt="promotional image")
+            .product-sidebar__promotional--info 
+                h3.product-sidebar__promotional--name Máy khoan black decker loại 1
+                p.product-sidebar__promotional--price 1.550.000 Đ
+
+block vars
+    -title = "Products"
+    -const sidebarItems = ['Máy khoan , cắt CNC','Máy in phun khổ lớn', 'Máy quét Canon 3D', 'Máy hàn điện Alunima', 'Máy khoan Decameta', 'Máy phay đa năng CNC', 'Máy mài, tiện DC 12V', 'Máy khoan, cắt CNC', 'Máy quay thông minh N3', 'Motor R34C đa dụng', 'Máy in laser màu 3D'];
+    -const sidebarPrices = ['0 - 200.000 Đ (45)', '200.000 Đ - 500.000 Đ (32)', '500.000 Đ - 1.000.000 Đ (27)', '1.000.000 Đ - 2.000.000 Đ (16)', 'Trên 2.000.000 Đ (9)'];
+    -const sidebarColors = [{code: '#e61010', text: 'Màu đỏ (45)'}, {code: '#f5bd10', text: 'Màu vàng (32)'}, {code: '#0685ca', text: 'Màu xanh (27)'}, {code: '#acacac', text: 'Màu bạc (16)'}, {code: '#252525', text: 'Màu đen (9)'}]
+    -const sidebarImgSrc = 'assets/images/products/sidebar-products/';
+    -const sidebarImgs = ['product1.png', 'product2.png', 'product3.png', 'product4.png', 'product5.png'];
+
+block container
+    section.product
+        .container
+            .col-md-12 
+                .product-direction-top 
+                    a.product-direction-top__link.product-direction-top__link-pr(href="index.html") Trang chủ
+                    i.fas.fa-caret-right.product-direction-top__icon 
+                    a.product-direction-top__link.product-direction-top__link-child.active Danh mục sản phẩm
+                .row 
+                    .col-md-3
+                        .product-sidebar
+                            .product-sidebar__category
+                                span.product-sidebar__link.product-sidebar__title
+                                    i.fas.fa-bars.window-icon-yl
+                                    |Danh mục sản phẩm
+                                label.product-sidebar__op(for="productSidebarOp") 
+                                    i.fas.fa-chevron-down
+                                input#productSidebarOp(type="checkbox" hidden)
+                                ul.product-sidebar__list 
+                                    each item in sidebarItems
+                                        +productSidebarItem(item)
+                            .product-sidebar__price
+                                span.product-sidebar__link.product-sidebar__title
+                                    i.fas.fa-dollar-sign.window-icon-yl
+                                    |Tìm theo mức giá
+                                label.product-sidebar__op(for="productSidebarOp") 
+                                    i.fas.fa-chevron-down
+                                input#productSidebarOp(type="checkbox" hidden)
+                                ul.product-sidebar__list 
+                                    each item in sidebarPrices
+                                        +productSidebarItem(item)
+                            .product-sidebar__color
+                                span.product-sidebar__link.product-sidebar__title
+                                    i.fas.fa-paint-brush.window-icon-yl
+                                    |Tìm theo màu sắc
+                                label.product-sidebar__op(for="productSidebarOp") 
+                                    i.fas.fa-chevron-down
+                                input#productSidebarOp(type="checkbox" hidden)
+                                ul.product-sidebar__list 
+                                    each item in sidebarColors
+                                        +productSidebarColorItem(item.text, item.code)
+                            .product-sidebar__promotional
+                                span.product-sidebar__link.product-sidebar__title
+                                    i.fas.fa-gift.window-icon-yl
+                                    |Sản phẩm khuyến mại
+                                label.product-sidebar__op(for="productSidebarOp") 
+                                    i.fas.fa-chevron-down
+                                input#productSidebarOp(type="checkbox" hidden)
+                                ul.product-sidebar__list 
+                                    each item in sidebarImgs 
+                                        +productSidebarPromotional(sidebarImgSrc+item)
+                    .col-md-9 

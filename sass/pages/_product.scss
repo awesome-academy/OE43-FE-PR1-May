@@ -1,0 +1,78 @@
+.product-direction-top {
+    font: {
+        family: $secondary-font;
+        size: 1.4rem;
+        weight: 400;
+    }
+    margin: 30px 0;
+
+    &__link {
+        color: $text-color;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        &.active {
+            color: $title-color;
+        }
+    }
+
+    &__icon {
+        color: $text-color;
+        margin: 0 10px;
+    }
+}
+
+.product-sidebar {
+    &__title {
+        background-color: $secondary-color;
+        color: $primary-color !important;
+        text-transform: uppercase;
+
+        i {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__price, &__color, &__promotional {
+        margin-top: 30px;
+        position: relative;
+    }
+
+    &__color-box {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 1px solid $white;
+        margin-right: 10px;
+    }
+
+    &__promotional--link {
+        display: flex;
+        padding: 20px 10px;
+        border: 1px solid $border-color;
+        border-top: none;
+    }
+
+    &__promotional--info {
+        padding: 5px 10px;
+        flex: 1;
+    }
+
+    &__promotional--name {
+        @include page-title;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+
+    &__promotional--price {
+        font: {
+            size: 1.4rem;
+            weight: 500;
+        }
+        color: $red;
+        line-height: 1.8rem;
+        margin-top: 5px;
+    }
+}
