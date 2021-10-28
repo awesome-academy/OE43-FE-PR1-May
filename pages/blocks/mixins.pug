@@ -34,7 +34,7 @@ mixin productBestSellingBtItem(img)
                 button.products__btn--buy Mua ngay 
                 button.products__btn--see-details Xem chi tiết
 
-mixin productListFormat(img)
+mixin productNewImport(img)
     .product-list__item
         .row
             .col-md-4 
@@ -49,6 +49,26 @@ mixin productListFormat(img)
                         i.far.fa-star
                     i.product-list__rate-num (12 Đánh giá)
                     p.product-list__text.text-2-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut rhoncus velit. In mattis hendrerit tristique. Suspendisse gravida efficitur semper. Mauris tortor purus, dignissim vitae commodo at, fermentum et libero. Duis id diam in dui lacinia dignissim at vel justo.
+                    h4.product-list__price 2.350.000 Đ
+                    .product-list__btns 
+                        button.product-list__btn--buy Mua ngay 
+                        button.product-list__btn--see-details Xem chi tiết
+
+mixin productListFormat(img)
+    .product-list__item
+        .row
+            .col-md-3 
+                .product-list__img
+                    img(src= img, alt="product list item")
+            .col-md-9 
+                .product-list__content 
+                    h3.product-list__name Máy khoan cnc 3D
+                    span.product-list__rate 
+                        each i in [1, 2, 3, 4]
+                            i.fas.fa-star
+                        i.far.fa-star
+                    i.product-list__rate-num (12 Đánh giá)
+                    p.product-list__text.text-3-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et augue id massa volutpat rutrum. Phasellus luctus magna sapien, at eleifend tellus lacinia non. Sed tincidunt turpis nec sapien ullamcorper, in malesuada sapien vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac hendrerit diam. Aliquam hendrerit, lorem non lobortis laoreet, augue ligula imperdiet eros, eget volutpat ipsum tortor sed orci. Cras eget mi sapien. Cras sed condimentum massa, tempus luctus leo. Pellentesque hendrerit ligula eu libero placerat, quis blandit enim egestas.
                     h4.product-list__price 2.350.000 Đ
                     .product-list__btns 
                         button.product-list__btn--buy Mua ngay 

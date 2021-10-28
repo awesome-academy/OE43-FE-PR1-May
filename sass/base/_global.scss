@@ -51,3 +51,12 @@ ul {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+
+.text-3-line {
+    display: block;
+    height: 5.7rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
