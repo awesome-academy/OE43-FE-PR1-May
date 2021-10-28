@@ -25,6 +25,11 @@
 }
 
 .product-sidebar {
+
+    @include mobile {
+        display: none;
+    }
+
     &__title {
         background-color: $secondary-color;
         color: $primary-color !important;
@@ -74,5 +79,138 @@
         color: $red;
         line-height: 1.8rem;
         margin-top: 5px;
+    }
+}
+
+.product-action {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid $border-color;
+
+    &__function {
+        display: flex;
+        align-items: center;
+        padding: 13px 20px 13px 0;
+        font: {
+            size: 1.4rem;
+            family: $secondary-font;
+            weight: 400;
+        }
+    }
+
+    &__label {
+        color: $title-color;    
+    }
+
+    select {
+        border: 1px solid $border-color;
+        color: $text-color;
+        padding: 10px 12px;
+        margin-right: 30px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        @include mobile {
+            margin-top: 5px;
+        }
+    }
+
+    select#productsSort {
+        min-width: 165px;
+    }
+
+    select#productsShow {
+        min-width: 100px;
+    }
+
+    &__sort, &__show {
+        position: relative;
+    }
+
+    &__icon {
+        color: $text-color;
+        position: absolute;
+        top: 8px;
+        right: 40px;
+
+        @include mobile {
+            top: 27px;
+        }
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__switch {
+        padding: 8px 10px;
+        border: 1px solid $border-color; 
+        background-color: $white;
+        color: $text-color;
+        margin: 0 0 0 8px;
+        font-size: 1.8rem;
+        position: absolute;
+        right: 15px;
+        top: 12px;
+        cursor: pointer;
+
+        @include mobile {
+            top: 85px;  
+        }
+
+        &-list {
+            right: 62px;
+        }
+    }
+}
+
+.product-list__grid-format,
+.products-list__list-format {
+    margin-top: 43px;
+    display: none;
+}
+
+input#productSwitchList:checked ~ .products-list__list-format{
+    display: block;
+}
+
+input#productSwitchList:checked ~ .product-action__switch-list {
+    color: $primary-color;
+}
+
+input#productSwitchGrid:checked ~ .product-list__grid-format{
+    display: block;
+}
+
+input#productSwitchGrid:checked ~ .product-action__switch-grid {
+    color: $primary-color;
+}
+
+.product-paginate {
+    margin-top: 50px;
+
+    &__page-list {
+        justify-content: flex-end;
+    }
+
+    &__link {
+        @include page-text;
+        font-size: 1.3rem;
+        border: 1px solid $semi-border;
+        padding: 14px;
+        line-height: 1.3rem;
+        margin-left: 5px;
+
+        &:hover {
+            border-color: $primary-color;
+            color: $primary-color !important;
+        }
+    }
+
+    &__link.active {
+        color: $white !important;
+        background-color: $primary-color;
+        border-color: $primary-color;
     }
 }

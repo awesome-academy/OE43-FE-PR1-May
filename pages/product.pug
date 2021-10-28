@@ -22,6 +22,9 @@ block vars
     -const sidebarColors = [{code: '#e61010', text: 'Màu đỏ (45)'}, {code: '#f5bd10', text: 'Màu vàng (32)'}, {code: '#0685ca', text: 'Màu xanh (27)'}, {code: '#acacac', text: 'Màu bạc (16)'}, {code: '#252525', text: 'Màu đen (9)'}]
     -const sidebarImgSrc = 'assets/images/products/sidebar-products/';
     -const sidebarImgs = ['product1.png', 'product2.png', 'product3.png', 'product4.png', 'product5.png'];
+    -const productListImgSrc = 'assets/images/products/products-list/';
+    -const productListImg = ['product-1.png', 'product-2.png', 'product-3.png', 'product-4.png', 'product-5.png', 'product-6.png', 'product-7.png', 'product-8.png', 'product-9.png'];
+    -const productGridImg = ['product-1.png', 'product-2.png', 'product-3.png', 'product-4.png', 'product-5.png', 'product-6.png', 'product-7.png', 'product-8.png', 'product-9.png', 'product-10.png', 'product-11.png', 'product-12.png', 'product-13.png', 'product-14.png', 'product-15.png', 'product-16.png', 'product-17.png', 'product-18.png'];
 
 block container
     section.product
@@ -75,3 +78,41 @@ block container
                                     each item in sidebarImgs 
                                         +productSidebarPromotional(sidebarImgSrc+item)
                     .col-md-9 
+                        .product-action 
+                            .product-action__function 
+                                .product-action__sort
+                                    span.product-action__label Sắp xếp theo: 
+                                    select#productsSort.product-action__select(name="productsSort")
+                                        option Tên sản phẩm 
+                                        option Giá tăng dần 
+                                        option Giá giảm dần
+                                    i.fas.fa-sort-down.product-action__icon
+                                .product-action__show 
+                                    span.product-action__label Show: 
+                                    select#productsShow.product-action__select(name="productsShow")
+                                        option 9 
+                                        option(selected) 18
+                                        option 24
+                                    i.fas.fa-sort-down.product-action__icon
+                        input#productSwitchList(type="radio", name="productSwitch" checked hidden)
+                        input#productSwitchGrid(type="radio", name="productSwitch" hidden)
+                        label.product-action__switch.product-action__switch-list(for="productSwitchList") 
+                            i.fas.fa-bars
+                        label.product-action__switch.product-action__switch-grid(for="productSwitchGrid") 
+                            i.fas.fa-th
+                        .products-list__list-format
+                            each item in productListImg
+                                +productListFormat(productListImgSrc+item)
+                        .product-list__grid-format 
+                            .row
+                                each item in productGridImg
+                                    .col-md-4
+                                        +productItemBox(productListImgSrc+item)
+                        .product-paginate 
+                            .col-md-12
+                                .row.product-paginate__page-list 
+                                    a.product-paginate__link(href="#") Trang trước
+                                    a.product-paginate__link.active(href="#") 1
+                                    a.product-paginate__link(href="#") 2
+                                    a.product-paginate__link(href="#") 3
+                                    a.product-paginate__link(href="#") Trang cuối 

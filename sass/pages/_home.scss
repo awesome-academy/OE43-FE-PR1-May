@@ -19,7 +19,7 @@
         box-shadow: 0 0 2px 1px $shadow-color;
         padding: 20px 0;
         height: 100%;
-        min-height: 338px;
+        min-height: 358px;
 
         &:hover {
             box-shadow: 0 0 5px 2px $shadow-color;
@@ -585,6 +585,10 @@ input#productSidebarOp:checked ~ .product-sidebar__list {
             weight: 500;
         }
         color: $red;
+    }
+
+    &__btns {
+        margin: 15px 0;
     }
 
     &__btn--buy {
