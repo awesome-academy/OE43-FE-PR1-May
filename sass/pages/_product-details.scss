@@ -1,0 +1,297 @@
+.product-info {
+    &-row {
+        @include mobile {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__img--small {
+        display: flex;
+        margin-top: 10px;
+    }
+    
+    &__img-item {
+        margin-right: 5px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__name {
+        @include page-title;
+        font-size: 2.4rem;
+    }
+
+    &__send-cmt-link {
+        font-size: 1.2rem;
+        color: $title-color;
+        text-decoration: underline $title-color !important;
+        padding: 0 20px;
+        margin-left: 20px;
+        border-left: 1px solid $text-color;
+
+        &:hover {
+            color: $title-color;
+        }
+    }
+
+    &__price {
+        color: $red;
+        font: {
+            size: 2.2rem;
+            weight: 500;
+        }
+        margin-top: 10px;
+    }
+
+    &__sumary {
+        padding: 15px 0 5px;
+        margin: 10px 0;
+        border: 1px solid $border-color;
+        border-left: none;
+        border-right: none;
+
+        strong {
+            color: $title-color;
+            font: {
+                size: 1.4rem;
+                weight: 500;
+            }
+        }
+        
+        p {
+            @extend .product-list__text;
+            margin-top: 10px;
+        }
+    }
+
+    &__choose {
+        padding: 0 15px 5px;
+        border-bottom: 1px solid $border-color;
+    }
+
+    &__choose-label {
+        font: {
+            size: 1.4rem;
+            color: $secondary-bold-color;
+            weight: 500;
+        }
+        margin-top: 5px;
+    }
+
+    &__select-cont {
+        position: relative;
+    }
+
+    &__select {
+        border: 1px solid $border-color;
+        @include page-text;
+        font-size: 1.3rem;
+        padding: 8px;
+        min-width: 190px;
+        margin: 0px 30px 10px 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    &__select-icon {
+        color: $text-color;
+        font-size: 1.4rem;
+        position: absolute;
+        right: 42px;
+        top: 12px;
+    }
+
+    &__quantity {
+        padding: 15px 0;
+    }
+
+    &__quantity-input {
+        border: 1px solid $border-color;
+        padding: 11px 30px 12px 0px;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        color: $secondary-bold-color;
+        text-align: center;
+        width: 110px;
+    }
+
+    &__quantity-input::-webkit-outer-spin-button,
+    &__quantity-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &__quantity-label {
+        position: relative;
+    }
+
+    &__quantity-control {
+        display: block;
+        border-left: 1px solid $border-color;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        padding: 5px 10px;
+    }
+
+    &__quantity-control-link {
+        color: $text-color;
+        font-size: 1.4rem;
+        display: block;
+    }
+
+    &__quantity-control-link:hover {
+        color: $primary-color;
+    }
+
+    &__order-btn {
+        color: $white;
+        border: none;
+        background-color: $primary-color;
+        text-transform: uppercase;
+        font: {
+            size: 1.2rem;
+            weight: 500;
+        }
+        padding: 15px 25px;
+        margin-left: 10px;
+    }
+
+    &__share {
+        margin-bottom: 10px;
+    }
+
+    &__share-btn {
+        font: {
+            size: 1.2rem;
+            weight: 500;
+        }
+        display: inline-flex;
+        align-items: center;
+        color: $white;
+        border: none;
+        padding: 2px 4px;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+
+        &.share-fb {
+            background-color: $fb-color;
+        }
+
+        &.share-tweet {
+            background-color: $tweet-color;
+        }
+
+        &.share-gg {
+            background-color: $white;
+            color: $gg-color;
+            border: 1px solid $border-share;
+            margin-left: 5px;
+
+            .product-info__share-icon {
+                margin-right: 0;
+            }
+        }
+        
+        &.share-share {
+            background-color: $share-color;
+            margin-left: 20px;
+        }
+    }
+
+    &__share-icon {
+        font-size: 1.6rem;
+        margin-right: 5px;
+    }
+
+    &__share-num {
+        font: {
+            size: 1.2rem;
+            weight: 500;
+        }
+        color: $share-text;
+        border: 1px solid $share-text-border;
+        padding: 2px 7px;
+        margin: 6px;
+        position: relative;
+        top: -2px;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border: 1px solid;
+            border-color: transparent transparent $share-text-border $share-text-border;
+            transform: rotate(45deg);
+            background-color: $white;
+            left: -4px;
+            top: 6px;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+        }
+    }
+}
+
+.product-detail-info {
+    margin-top: 50px;
+
+    &__tab-link {
+        font: {
+            size: 1.4rem;
+            weight: 400;
+        }
+        color: $secondary-bold-color;
+        text-transform: uppercase;
+        padding: 25px 40px;
+        border: 1px solid $border-color;
+        border-left: none;
+        display: inline-block;
+        line-height: 1.4rem;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        &.active {
+            background-color: $secondary-bold-color;
+            color: $primary-color;
+        }
+    }
+
+    &__tab-item:first-child {
+        .product-detail-info__tab-link {
+            border-left: 1px solid $border-color;
+        }
+    }
+
+    &__content {
+        border: 1px solid $border-color;
+        border-top: none;
+        padding: 20px 20px 50px 20px;
+    }
+
+    &__text {
+        @include page-text;
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+    }
+}
+
+.product-detail-similar {
+    margin-top: 45px;
+}

@@ -1,0 +1,140 @@
+extends layouts/layout
+
+block vars
+    -title = "Product Details"
+    -const productDetailImgSrc = 'assets/images/products/product-details/detail-smalls/';
+    -const productDetailImgs = ['detail1.png', 'detail2.png', 'detail3.png', 'detail4.png', 'detail5.png'];
+    -const similarProImgSrc = 'assets/images/products/featured-products/';
+    -const similarProInfo = ['product1.png', 'product2.png', 'product3.png'];
+block container
+    section.product-details
+        .container 
+            .col-md-12
+                .product-direction-top 
+                    a.product-direction-top__link.product-direction-top__link-pr(href="index.html") Trang chủ
+                    i.fas.fa-caret-right.product-direction-top__icon 
+                    a.product-direction-top__link.product-direction-top__link-child Danh mục sản phẩm
+                    i.fas.fa-caret-right.product-direction-top__icon 
+                    a.product-direction-top__link.product-direction-top__link-child.active Máy khoan CNC 3D
+                .row
+                    .col-md-3
+                        .product-sidebar
+                            +category
+                            +sidebarPromotional
+                    .col-md-9 
+                        .product-info 
+                            .row.product-info-row
+                                .col-md-5 
+                                    .product-info__img--big 
+                                        img(src="assets/images/products/product-details/detail-big.png", alt="product detail")
+                                    ul.product-info__img--small 
+                                        each item in productDetailImgs
+                                            li.product-info__img-item 
+                                                img(src=productDetailImgSrc + item, alt="product detail")
+                                .col-md-7 
+                                    .product-info__order 
+                                        h2.product-info__name Máy khoan CNC 3D
+                                        span.products__rate 
+                                            each i in [1, 2, 3, 4]
+                                                i.fas.fa-star
+                                            i.far.fa-star
+                                        span.products__rate-num (12 Đánh giá)
+                                        a.product-info__send-cmt-link(href="#") Gửi bình luận của bạn
+                                        p.product-info__price GNY: 2.350.000 Đ
+                                        .product-info__sumary
+                                            strong Thông tin sản phẩm: 
+                                            p.text-3-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et augue id massa volutpat rutrum. Phasellus luctus magna sapien, at eleifend tellus lacinia non. Sed tincidunt turpis nec sapien ullamcorper, in malesuada sapien vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac hendrerit diam. Aliquam hendrerit, lorem non lobortis laoreet, augue ligula imperdiet eros, eget volutpat ipsum tortor sed orci. Cras eget mi sapien. Cras sed condimentum massa, tempus luctus leo. Pellentesque hendrerit ligula eu libero placerat, quis blandit enim egestas.
+                                        .product-info__choose
+                                            .row 
+                                                .product-info__choose--left
+                                                    label.product-info__choose-label(for="selectSize") Size:
+                                                    .product-info__select-cont
+                                                        select#selectSize.product-info__select(name="selectInfo")
+                                                            option --Chọn size--
+                                                            option To 
+                                                            option Nhỏ
+                                                        i.fas.fa-caret-down.product-info__select-icon      
+                                                .product-info__choose--right
+                                                    label.product-info__choose-label(for="selectColor") Màu sắc:
+                                                    .product-info__select-cont
+                                                        select#selectColor.product-info__select(name="selectInfo")
+                                                            option --Chọn màu--
+                                                            option Đỏ 
+                                                            option Đen 
+                                                            option Vàng 
+                                                            option Xanh
+                                                        i.fas.fa-caret-down.product-info__select-icon   
+                                        .product-info__quantity 
+                                            label.product-info__quantity-label(for="selectQuantity")
+                                                input#selectQuantity.product-info__quantity-input(type="number", name="quantity" value="1")  
+                                                .product-info__quantity-control
+                                                    a.product-info__quantity-control-link(href="#")
+                                                        i.fas.fa-caret-up       
+                                                    a.product-info__quantity-control-link(href="#")
+                                                        i.fas.fa-caret-down
+                                            button.product-info__order-btn Mua ngay      
+                                        .product-info__share
+                                            button.product-info__share-btn.share-fb
+                                                i.fab.fa-facebook-square.product-info__share-icon
+                                                | Like
+                                            span.product-info__share-num 0
+                                            button.product-info__share-btn.share-tweet
+                                                i.fab.fa-twitter.product-info__share-icon
+                                                | Tweet
+                                            button.product-info__share-btn.share-gg
+                                                i.fab.fa-google-plus-g.product-info__share-icon
+                                                | 1
+                                            span.product-info__share-num 0
+                                            button.product-info__share-btn.share-share
+                                                i.fas.fa-plus-square.product-info__share-icon
+                                                | Share
+                        .product-detail-info 
+                            ul.nav.nav-tabs.product-detail-info__tab
+                                li.nav-item.product-detail-info__tab-item
+                                    a.active.product-detail-info__tab-link(data-toggle="tab", href="#productInfo") Thông tin sản phẩm 
+                                li.nav-item.product-detail-info__tab-item
+                                    a.product-detail-info__tab-link(data-toggle="tab", href="#evaluate") Đánh giá - nhận xét
+                                li.nav-item.product-detail-info__tab-item
+                                    a.product-detail-info__tab-link(data-toggle="tab", href="#tags") Thẻ tags     
+                            .tab-content.product-detail-info__content
+                                #productInfo.tab-pane.active
+                                    p.product-detail-info__text Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis
+                                        | vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci
+                                        | luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl
+                                        | ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora
+                                        | torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu,
+                                        | placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui
+                                        | vulputate mollis eget non arcu. Aenean et nulla purus.
+                                    br
+                                    p.product-detail-info__text Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                                        | doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                        | architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                                        | aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi
+                                        | nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                                        | velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
+                                        | voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.
+                                    br
+                                    p.product-detail-info__text Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
+                                        | quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+                                    br
+                                    p.product-detail-info__text Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis
+                                        | vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci
+                                        | luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl
+                                        | ut dolor dignissim semper. Nulla luctus malesuada tincidunt.  
+                                #evaluate.tab-pane.fade
+                                #tags.tab-pane.fade
+                        .product-detail-similar 
+                            .products__header 
+                                h4.products__heading 
+                                    i.fas.fa-th-large.window-icon-yl
+                                    | Sản phẩm tương tự
+                                .product-direction 
+                                    button.product-direction__btn 
+                                        i.fas.fa-caret-left
+                                    button.product-direction__btn 
+                                        i.fas.fa-caret-right
+                            .product-detail-similar__list 
+                                .row 
+                                    each item in similarProInfo
+                                        .col-md-4
+                                            +productItemBox(similarProImgSrc+item)
