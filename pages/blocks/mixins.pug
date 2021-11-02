@@ -1,3 +1,7 @@
+-const categoryItems = ['Máy khoan , cắt CNC','Máy in phun khổ lớn', 'Máy quét Canon 3D', 'Máy hàn điện Alunima', 'Máy khoan Decameta', 'Máy phay đa năng CNC', 'Máy mài, tiện DC 12V', 'Máy khoan, cắt CNC', 'Máy quay thông minh N3', 'Motor R34C đa dụng', 'Máy in laser màu 3D'];
+-const sidebarImgSrc = 'assets/images/products/sidebar-products/';
+-const sidebarImgs = ['product1.png', 'product2.png', 'product3.png', 'product4.png', 'product5.png'];
+
 mixin productSidebarItem(item)
     li.product-sidebar__item 
         a.product-sidebar__link(href="#")
@@ -16,8 +20,8 @@ mixin productItemBox(img)
                 i.far.fa-star
             i.products__rate-num (12 Đánh giá)
             .products__btns 
-                button.products__btn--buy Mua ngay 
-                button.products__btn--see-details Xem chi tiết
+                a(href="#").products__btn--buy Mua ngay 
+                a(href="product-details.html").products__btn--see-details Xem chi tiết
 
 mixin productBestSellingBtItem(img)
     .products__item.best-sell-products__item-bt.text-center
@@ -31,8 +35,8 @@ mixin productBestSellingBtItem(img)
                 i.far.fa-star
             i.products__rate-num (12 Đánh giá)
             .products__btns 
-                button.products__btn--buy Mua ngay 
-                button.products__btn--see-details Xem chi tiết
+                a(href="#").products__btn--buy Mua ngay 
+                a(href="product-details.html").products__btn--see-details Xem chi tiết
 
 mixin productNewImport(img)
     .product-list__item
@@ -51,8 +55,8 @@ mixin productNewImport(img)
                     p.product-list__text.text-2-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut rhoncus velit. In mattis hendrerit tristique. Suspendisse gravida efficitur semper. Mauris tortor purus, dignissim vitae commodo at, fermentum et libero. Duis id diam in dui lacinia dignissim at vel justo.
                     h4.product-list__price 2.350.000 Đ
                     .product-list__btns 
-                        button.product-list__btn--buy Mua ngay 
-                        button.product-list__btn--see-details Xem chi tiết
+                        a(href="#").product-list__btn--buy Mua ngay 
+                        a(href="product-details.html").product-list__btn--see-details Xem chi tiết
 
 mixin productListFormat(img)
     .product-list__item
@@ -71,5 +75,32 @@ mixin productListFormat(img)
                     p.product-list__text.text-3-line Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et augue id massa volutpat rutrum. Phasellus luctus magna sapien, at eleifend tellus lacinia non. Sed tincidunt turpis nec sapien ullamcorper, in malesuada sapien vulputate. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ac hendrerit diam. Aliquam hendrerit, lorem non lobortis laoreet, augue ligula imperdiet eros, eget volutpat ipsum tortor sed orci. Cras eget mi sapien. Cras sed condimentum massa, tempus luctus leo. Pellentesque hendrerit ligula eu libero placerat, quis blandit enim egestas.
                     h4.product-list__price 2.350.000 Đ
                     .product-list__btns 
-                        button.product-list__btn--buy Mua ngay 
-                        button.product-list__btn--see-details Xem chi tiết
+                        a(href="#").product-list__btn--buy Mua ngay 
+                        a(href="product-details.html").product-list__btn--see-details Xem chi tiết
+
+mixin productSidebarPromotional(img)
+    li.product-sidebar__promotional--item
+        a.product-sidebar__promotional--link(href="product-details.html")
+            .product-sidebar__promotional--img 
+                img(src= img, alt="promotional image")
+            .product-sidebar__promotional--info 
+                h3.product-sidebar__promotional--name Máy khoan black decker loại 1
+                p.product-sidebar__promotional--price 1.550.000 Đ
+
+mixin category 
+    .product-sidebar__category
+        span.product-sidebar__link.product-sidebar__title
+            i.fas.fa-bars.window-icon-yl
+            |Danh mục sản phẩm
+        ul.product-sidebar__list 
+            each item in categoryItems
+                +productSidebarItem(item)
+
+mixin sidebarPromotional 
+    .product-sidebar__promotional
+        span.product-sidebar__link.product-sidebar__title
+            i.fas.fa-gift.window-icon-yl
+            |Sản phẩm khuyến mại
+        ul.product-sidebar__list 
+            each item in sidebarImgs 
+                +productSidebarPromotional(sidebarImgSrc+item)
