@@ -60,3 +60,58 @@ ul {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
+
+.page-direction-top {
+    font: {
+        family: $secondary-font;
+        size: 1.4rem;
+        weight: 400;
+    }
+    margin: 30px 0;
+    line-height: 1.8rem;
+
+    &__link {
+        color: $text-color;
+
+        &:hover {
+            color: $primary-color;
+        }
+
+        &.active {
+            color: $title-color;
+        }
+    }
+
+    &__icon {
+        color: $text-color;
+        margin: 0 10px;
+    }
+}
+
+.paginate {
+    margin: 50px 0;
+
+    &__page-list {
+        justify-content: flex-end;
+    }
+
+    &__link {
+        @include page-text;
+        font-size: 1.3rem;
+        border: 1px solid $semi-border;
+        padding: 11px 14px;
+        line-height: 1.3rem;
+        margin-left: 5px;
+
+        &:hover {
+            border-color: $primary-color;
+            color: $primary-color !important;
+        }
+    }
+
+    &__link.active {
+        color: $white !important;
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+}

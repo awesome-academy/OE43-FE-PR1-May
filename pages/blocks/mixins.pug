@@ -1,6 +1,12 @@
 -const categoryItems = ['Máy khoan , cắt CNC','Máy in phun khổ lớn', 'Máy quét Canon 3D', 'Máy hàn điện Alunima', 'Máy khoan Decameta', 'Máy phay đa năng CNC', 'Máy mài, tiện DC 12V', 'Máy khoan, cắt CNC', 'Máy quay thông minh N3', 'Motor R34C đa dụng', 'Máy in laser màu 3D'];
 -const sidebarImgSrc = 'assets/images/products/sidebar-products/';
 -const sidebarImgs = ['product1.png', 'product2.png', 'product3.png', 'product4.png', 'product5.png'];
+-const blogsCategory = ["Đời sống pháp luật (5)", "Kinh tế trong nước (8)", "Sức khỏe và gia đình (9)", "Công nghệ thông tin (5)", "Tin tức khác (12)"]
+-const blogTags = ["thời trang", "máy khoan", "news", "công nghiệp", "xây dựng", "phay", "máy cắt", "hóa chất"];
+-const blogImgSrc = 'assets/images/blogs/';
+-const blogImgs = ["blog1.jpg", "blog2.jpg", "blog3.jpg", "blog4.jpg"];
+-const blogSidebarImgSrc = 'assets/images/blog-sidebar/';
+-const blogSidebarImgs = ['image1.jpg', 'image2.jpg', 'image3.jpg', 'image4.jpg', 'image5.jpg', 'image6.jpg']
 
 mixin productSidebarItem(item)
     li.product-sidebar__item 
@@ -87,7 +93,7 @@ mixin productSidebarPromotional(img)
                 h3.product-sidebar__promotional--name Máy khoan black decker loại 1
                 p.product-sidebar__promotional--price 1.550.000 Đ
 
-mixin category 
+mixin productCategory 
     .product-sidebar__category
         span.product-sidebar__link.product-sidebar__title
             i.fas.fa-bars.window-icon-yl
@@ -104,3 +110,30 @@ mixin sidebarPromotional
         ul.product-sidebar__list 
             each item in sidebarImgs 
                 +productSidebarPromotional(sidebarImgSrc+item)
+
+mixin blogSidebar 
+    .blogs-sidebar 
+        +productCategory
+        .blogs-category
+            h4.blogs-category__title 
+                i.fas.fa-th-large.window-icon-yl 
+                |Danh mục tin tức
+            ul.blogs-category__list 
+                each item in blogsCategory      
+                    li.blogs-category__item 
+                        a.blogs-category__link(href="#")= item
+        .blogs-images-lib 
+            h4.blogs-category__title 
+                i.fas.fa-th-large.window-icon-yl 
+                |Thư viện hình ảnh
+            .blogs-images-lib__list
+                each image,i in blogSidebarImgs
+                    span.blogs-images-lib__img
+                        img(src=blogSidebarImgSrc+image, alt="blog sidebar "+(i+1))
+        .blogs-tags
+            h4.blogs-category__title 
+                i.fas.fa-th-large.window-icon-yl 
+                |Thẻ tags
+            .blogs-tags__list
+                each item in blogTags 
+                    a.blogs-tags__link(href="#")= item
