@@ -1,0 +1,131 @@
+.blogs-direction {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 30px;
+}
+
+.blogs-category {
+    
+    &__title {
+        @include page-title;
+        color: $black-bold-text;
+        font-size: 1.4rem;
+        padding: 20px 0;
+        margin: 20px 0 0 0;
+    }
+
+    &__item:first-child {
+        border-top: 1px solid $primary-color;
+    }
+
+    &__link {
+        @include page-text;
+        font-size: 1.3rem;
+        padding: 20px 0;
+        border-bottom: 1px solid $border-color;
+        display: block;
+
+        &:hover {
+            color: $primary-color !important;
+        }
+    }
+}
+
+.blogs-images-lib {
+    
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    &__img {
+        max-width: 83px;
+        max-height: 83px;
+        display: block;
+        padding: 0 4px 4px 0;
+        margin: 0 2px 2px 0;
+    }
+}
+
+.blogs-tags {
+    
+    &__link {
+        @include page-text;
+        font: {
+            size: 1.3rem;
+            style: italic;
+        };
+        padding: 10px;
+        line-height: 1.3rem;
+        border: 1px solid $border-color;
+        display: inline-block;
+        margin: 0 5px 5px 0;
+
+        &:hover {
+            color: $white !important;
+            background-color: $secondary-bold-color;
+            border-color: $secondary-bold-color;
+        }
+    }
+
+    @include mobile {
+        margin-bottom: 20px;
+    }
+}
+
+.blogs {
+    
+    &__item {
+        padding-bottom: 35px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid $border-color;
+    }
+
+    &__title {
+        @include page-title;
+        font: {
+            size: 16px;
+            weight: 700;
+        }
+        color: $secondary-bold-color;
+        margin: 20px 0 10px;
+    }
+
+    &__info {
+        @include page-text;
+        font: {
+            size: 1.3rem;
+            style: italic;
+        }
+    }
+
+    &__text {
+        margin-right: 30px;
+
+        @include mobile {
+            display: block;
+        }
+    }
+
+    &__icon {
+        margin-right: 5px;
+    }
+
+    &__link {
+        color: $link-bold;
+        
+        &:hover {
+            color: $primary-color;
+        }
+    }
+
+    &__sumary {
+        @include page-text;
+        font-size: 1.3rem;
+        margin-top: 12px;
+    }
+
+    &__read-link {
+        @extend .blogs__link;
+    }
+}

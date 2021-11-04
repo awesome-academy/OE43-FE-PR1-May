@@ -1,0 +1,81 @@
+extends layouts/layout
+
+block vars
+    -title = "Blog Details";
+    -const blogDetailTags = ["máy khoan,", "máy cắt cnc,", "máy in 3D,", "công nghiệp,", "hàn xì,", "uốn thép..."];
+
+mixin sampleContent 
+    p.blog-details__text.
+        But I must explain to you how all this mistaken idea of denouncing
+            pleasure and praising pain was born and I will give you a complete account of the
+            system, and expound the actual teachings of the great explorer of the truth, the
+            master-builder of human happiness. No one rejects, dislikes, or avoids pleasure
+            itself, because it is pleasure, but because those who do not know how to pursue
+            pleasure rationally encounter consequences that are extremely painful. Nor again is
+            there anyone who loves or pursues or desires to obtain pain of itself, because it is
+            pain, but because occasionally circumstances occur in which toil and pain can procure
+            him some great pleasure.
+    p.blog-details__text.
+        "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+            voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+            cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id
+            est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam
+            libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod
+            maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet
+            ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
+            tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
+            perferendis doloribus asperiores repellat."
+
+block container
+    section.blog-details 
+        .container 
+            .col-md-12 
+                .page-direction-top.blogs-direction 
+                    a.page-direction-top__link.page-direction-top__link-pr(href="index.html") Trang chủ
+                    i.fas.fa-caret-right.page-direction-top__icon 
+                    a.page-direction-top__link.page-direction-top__link-child.active Tin tức
+                .row 
+                    .col-md-3
+                        +blogSidebar
+                    .col-md-9
+                        .blog-detail__content
+                            img.blog-details__main-img(src="assets/images/blogs/blog1.jpg", alt="main image")
+                            h4.blogs__title thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng
+                            .blogs__info 
+                                span.blogs__text Thứ năm, ngày 23/11/2015 8:00 AM
+                                span.blogs__text
+                                    i.fas.fa-user.blogs__icon 
+                                    |Đăng bởi 
+                                    a.blogs__link(href="#") Design Team
+                                span.blogs__text 
+                                    i.fas.fa-comments.blogs__icon 
+                                    |12 Bình luận
+                            +sampleContent
+                            .blog-details__sub-img 
+                                img(src="assets/images/blogs/blog-details/image1.jpg", alt="subtitle image")
+                            +sampleContent
+                            .blog-details__sub-img 
+                                img(src="assets/images/blogs/blog-details/image2.jpg", alt="subtitle image")
+                            +sampleContent
+                            p.blog-details__text.
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                 laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                                 architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                                 aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
+                                 voluptatem sequi nesciunt
+                        .blog-details__footer
+                            .blog-details__tags 
+                                strong.blog-details__footer-title tags:
+                                each tag in blogDetailTags
+                                    a.blog-details__tags-link(href="#")= tag
+                            .blog-details__share 
+                                strong.blog-details__footer-title Chia sẻ:
+                                    a.blog-details__share-link(href="#")
+                                        i.fab.fa-facebook-f 
+                                    a.blog-details__share-link(href="#")
+                                        i.fab.fa-google-plus-g
+                                    a.blog-details__share-link(href="#")
+                                        i.fab.fa-twitter
+                                    a.blog-details__share-link(href="#")
+                                        i.fab.fa-instagram

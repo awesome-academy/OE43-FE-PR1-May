@@ -1,0 +1,56 @@
+extends layouts/layout
+
+block vars
+    -title = "Blogs";
+
+block container
+    section.blogs 
+        .container 
+            .col-md-12
+                .page-direction-top.blogs-direction 
+                    a.page-direction-top__link.page-direction-top__link-pr(href="index.html") Trang chủ
+                    i.fas.fa-caret-right.page-direction-top__icon 
+                    a.page-direction-top__link.page-direction-top__link-child.active Tin tức
+                .row 
+                    .col-md-3
+                        +blogSidebar
+                    .col-md-9
+                        .blogs__list 
+                            each item in blogImgs 
+                                .blogs__item
+                                    img.blogs__image(src= blogImgSrc+item, alt="blog")
+                                    h4.blogs__title thế hệ máy khoan cắt cnc đầu tiên đã được tái sử dụng
+                                    .blogs__info 
+                                        span.blogs__text Thứ năm, ngày 23/11/2015 8:00 AM
+                                        span.blogs__text
+                                            i.fas.fa-user.blogs__icon 
+                                            |Đăng bởi 
+                                            a.blogs__link(href="#") Design Team
+                                        span.blogs__text 
+                                            i.fas.fa-comments.blogs__icon 
+                                            |12 Bình luận
+                                    p.blogs__sumary But I must explain to you how all this mistaken idea of denouncing
+                                        | pleasure and praising pain was born and I will give you a complete account
+                                        | of the system, and expound the actual teachings of the great explorer of the
+                                        | truth, the master-builder of human happiness. No one rejects, dislikes, or
+                                        | avoids pleasure itself, because it is pleasure, but because those who do not
+                                        | know how to pursue pleasure rationally encounter consequences that are
+                                        | extremely painful. Nor again is there anyone who loves or pursues or desires
+                                        | to obtain pain of itself, because it is pain, but because occasionally
+                                        | circumstances occur in which toil and pain can procure him some great
+                                        | pleasure...
+                                        a.blogs__read-link(href="blog-details.html") [Đọc tiếp]
+                        .paginate 
+                            .col-md-12
+                                nav
+                                    ul.row.paginate__page-list 
+                                        li
+                                            a.paginate__link(href="#") Trang trước
+                                        li
+                                            a.paginate__link.active(href="#") 1
+                                        li
+                                            a.paginate__link(href="#") 2
+                                        li
+                                            a.paginate__link(href="#") 3
+                                        li
+                                            a.paginate__link(href="#") Trang cuối       

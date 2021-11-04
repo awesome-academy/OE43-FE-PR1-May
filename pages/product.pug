@@ -18,14 +18,14 @@ block container
     section.product
         .container
             .col-md-12 
-                .product-direction-top 
-                    a.product-direction-top__link.product-direction-top__link-pr(href="index.html") Trang chủ
-                    i.fas.fa-caret-right.product-direction-top__icon 
-                    a.product-direction-top__link.product-direction-top__link-child.active Danh mục sản phẩm
+                .page-direction-top 
+                    a.page-direction-top__link.page-direction-top__link-pr(href="index.html") Trang chủ
+                    i.fas.fa-caret-right.page-direction-top__icon 
+                    a.page-direction-top__link.page-direction-top__link-child.active Danh mục sản phẩm
                 .row 
                     .col-md-3
                         .product-sidebar
-                            +category
+                            +productCategory
                             .product-sidebar__price
                                 span.product-sidebar__link.product-sidebar__title
                                     i.fas.fa-dollar-sign.window-icon-yl
@@ -72,11 +72,17 @@ block container
                                 each item in productGridImg
                                     .col-md-4
                                         +productItemBox(productListImgSrc+item)
-                        .product-paginate 
+                        .paginate 
                             .col-md-12
-                                .row.product-paginate__page-list 
-                                    a.product-paginate__link(href="#") Trang trước
-                                    a.product-paginate__link.active(href="#") 1
-                                    a.product-paginate__link(href="#") 2
-                                    a.product-paginate__link(href="#") 3
-                                    a.product-paginate__link(href="#") Trang cuối 
+                                nav
+                                    ul.row.paginate__page-list 
+                                        li
+                                            a.paginate__link(href="#") Trang trước
+                                        li
+                                            a.paginate__link.active(href="#") 1
+                                        li
+                                            a.paginate__link(href="#") 2
+                                        li
+                                            a.paginate__link(href="#") 3
+                                        li
+                                            a.paginate__link(href="#") Trang cuối
