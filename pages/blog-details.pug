@@ -26,6 +26,19 @@ mixin sampleContent
             ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
             tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut
             perferendis doloribus asperiores repellat."
+mixin blogCommentBox 
+    .blog-comment__box 
+        .blog-comment__avatar 
+            img(src="assets/images/user-avatar.jpg", alt="user avatar")
+        .blog-comment__content 
+            h4.blog-comment__user-name Hoang Truong Anh
+            .blog-comment__info 
+                span.blog-comment__time Thứ năm, ngày 23/10/2015 8:00 AM
+                a.blog-comment__reply-link(href="#") Trả lời 
+            p.blog-comment__text.
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                    doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo 
+                    inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
 block container
     section.blog-details 
@@ -79,3 +92,29 @@ block container
                                         i.fab.fa-twitter
                                     a.blog-details__share-link(href="#")
                                         i.fab.fa-instagram
+                        .blog-comment 
+                            h4.blog-details__title Bình luận: 
+                            +blogCommentBox 
+                            .blog-comment__reply-cmt
+                                +blogCommentBox
+                            +blogCommentBox
+                        form.blog-comment-form
+                            h4.blog-details__title.blog-comment-form__title Viết bình luận của bạn:
+                            .row 
+                                .col-md-6 
+                                    .form-group
+                                        label.blog-comment-form__label Họ và tên 
+                                            span.important-field-asterisk * 
+                                        input.blog-comment-form__inp(type="text")
+                                .col-md-6 
+                                    .form-group
+                                        label.blog-comment-form__label Email 
+                                            span.important-field-asterisk * 
+                                        input.blog-comment-form__inp(type="text")
+                                .col-md-12 
+                                    .form-group 
+                                        label.blog-comment-form__label Bình luận 
+                                        textarea.blog-comment-form__message
+                                .col-md-12 
+                                    .form-group 
+                                        button.blog-comment-form__btn Gửi bình luận
